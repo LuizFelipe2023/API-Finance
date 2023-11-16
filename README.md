@@ -5,7 +5,7 @@ Descrição:
 Esta API fornece serviços para gerenciar transações financeiras, metas de gastos mensais e controle de usuários.
 
 Tecnologias Usadas:
-Javascript, Express, Mongodb, JWT Tokens e Bcryptjs.
+Javascript, Express, Mongodb,Dotenv, JWT Tokens e Bcryptjs.
 
 Endpoints:
 
