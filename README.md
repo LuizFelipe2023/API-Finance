@@ -1,29 +1,27 @@
-# API-Finance
-markdown
+Finance API
 
-# Finance API
+Esta API oferece serviços para gerenciar transações financeiras, metas de gastos mensais e controle de usuários.
+Tecnologias Usadas
 
-Esta API fornece serviços para gerenciar transações financeiras, metas de gastos mensais e controle de usuários.
+    Javascript
+    Express
+    Mongodb
+    Dotenv
+    JWT Tokens
+    Bcryptjs
 
-## Tecnologias Usadas
-- Javascript
-- Express
-- Mongodb
-- Dotenv
-- JWT Tokens
-- Bcryptjs
+Configuração do Banco de Dados
 
-## Configuração do Banco de Dados
+Certifique-se de criar um arquivo .env na raiz do projeto com as seguintes variáveis de ambiente:
 
-Certifique-se de criar um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambiente:
+dotenv
 
-```dotenv
 db_user=seu_usuario_do_banco
 db_password=sua_senha_do_banco
 
 Configuração do JWT
 
-Certifique-se de adicionar a seguinte variável de ambiente ao seu arquivo .env para a assinatura e verificação do token JWT:
+Adicione a seguinte variável de ambiente ao seu arquivo .env para a assinatura e verificação do token JWT:
 
 dotenv
 
@@ -43,10 +41,11 @@ bash
 
     npm start
 
-O servidor será iniciado em http://localhost:3000 por padrão.
-##Esquema de Usuário
+    O servidor será iniciado em http://localhost:3000 por padrão.
 
-O arquivo userModel.js contém o esquema para os usuários. O esquema define a estrutura dos usuários e é usado pelo Mongoose para interagir com o MongoDB.
+Esquema de Usuário
+
+O arquivo userModel.js contém o esquema para os usuários. Este esquema define a estrutura dos usuários e é utilizado pelo Mongoose para interagir com o MongoDB.
 
 javascript
 
@@ -55,18 +54,18 @@ javascript
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-      email: {type: String, required: true, unique:true},
-      password: {type: String, required: true},
-      role: {type: String, required: true}
+      email: { type: String, required: true, unique: true },
+      password: { type: String, required: true },
+      role: { type: String, required: true }
 });
 
 const User = mongoose.model('User', userSchema);
 
 export default User;
 
-## Esquema de Transação
+Esquema de Transação
 
-O arquivo transactionModel.js contém o esquema para as transações financeiras. O esquema define a estrutura das transações e é usado pelo Mongoose para interagir com o MongoDB.
+O arquivo transactionModel.js contém o esquema para as transações financeiras. Este esquema define a estrutura das transações e é utilizado pelo Mongoose para interagir com o MongoDB.
 
 javascript
 
@@ -75,18 +74,18 @@ javascript
 import mongoose from "mongoose";
 
 const transactionSchema = new mongoose.Schema({
-      type: {type: String, required: true, enum :['income','expense']},
-      amount: {type: Number, required: true},
-      category: {type: String, required: true},
-      description: {type: String},
-      date: {type: Date, default: Date.now},
+      type: { type: String, required: true, enum: ['income', 'expense'] },
+      amount: { type: Number, required: true },
+      category: { type: String, required: true },
+      description: { type: String },
+      date: { type: Date, default: Date.now },
 });
 
 const Transaction = mongoose.model('Transaction', transactionSchema);
 
 export default Transaction;
 
-##Endpoints
+Endpoints
 Registrar Usuário
 
     Endpoint: /users/register
@@ -158,13 +157,9 @@ Obter Média Mensal de Despesas
     Método: GET
     Descrição: Retorna a média mensal de despesas.
 
-##Autenticação
+Autenticação
 
 Todos os endpoints, exceto /users/register e /users/login, requerem autenticação. Certifique-se de incluir um token válido no cabeçalho Authorization para acessar esses recursos.
 Recursos Adicionais
 
 Consulte a documentação completa para obter informações detalhadas sobre cada endpoint, campos necessários e respostas esperadas.
-
-
-Esse README fornece informações detalhadas sobre a configuração, execução, esquemas e endpoints da sua API Financeira. Certifique-se de ajustar conforme necessário com mais detalhes ou instruções específicas.
-
