@@ -2,6 +2,7 @@ import User from '../models/user.js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
+import BlacklistedToken from '../models/blacklistToken.js';
 dotenv.config();
 
 const secret = process.env.jwt_secret;
@@ -87,6 +88,22 @@ const userController = {
             res.json({ message: 'Password reset successful' });
         } catch (error) {
             console.error(`Error resetting password: ${error.message}`);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+    },
+    async logout(req, res) {
+        try {
+            const token = req.headers.authorization.split(' ')[1];
+
+            if (!token) {
+                return res.status(400).json({ error: 'Token not provided' });
+            }
+
+            await BlacklistedToken.create({ token });
+
+            res.json({ message: 'Logout successful' });
+        } catch (error) {
+            console.error(`Error logging out: ${error.message}`);
             res.status(500).json({ error: 'Internal Server Error' });
         }
     },
