@@ -7,6 +7,80 @@ Esta API fornece serviços para gerenciar transações financeiras, metas de gas
 Tecnologias Usadas:
 Javascript, Express, Mongodb,Dotenv, JWT Tokens e Bcryptjs.
 
+## Configuração do Banco de Dados
+
+Certifique-se de criar um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambiente:
+
+```dotenv
+db_user=seu_usuario_do_banco
+db_password=sua_senha_do_banco
+
+Configuração do JWT
+
+Certifique-se de adicionar a seguinte variável de ambiente ao seu arquivo .env para a assinatura e verificação do token JWT:
+
+dotenv
+
+JWT_SECRET=sua_chave_secreta_jwt
+
+Como Executar
+
+    Instale as dependências:
+
+    bash
+
+npm install
+
+Inicie o servidor:
+
+bash
+
+    npm start
+
+O servidor será iniciado em http://localhost:3000 por padrão.
+Esquema de Usuário
+
+O arquivo userModel.js contém o esquema para os usuários. O esquema define a estrutura dos usuários e é usado pelo Mongoose para interagir com o MongoDB.
+
+javascript
+
+// userModel.js
+
+import mongoose from "mongoose";
+
+const userSchema = new mongoose.Schema({
+      email: {type: String, required: true, unique:true},
+      password: {type: String, required: true},
+      role: {type: String, required: true}
+});
+
+const User = mongoose.model('User', userSchema);
+
+export default User;
+
+Esquema de Transação
+
+O arquivo transactionModel.js contém o esquema para as transações financeiras. O esquema define a estrutura das transações e é usado pelo Mongoose para interagir com o MongoDB.
+
+javascript
+
+// transactionModel.js
+
+import mongoose from "mongoose";
+
+const transactionSchema = new mongoose.Schema({
+      type: {type: String, required: true, enum :['income','expense']},
+      amount: {type: Number, required: true},
+      category: {type: String, required: true},
+      description: {type: String},
+      date: {type: Date, default: Date.now},
+});
+
+const Transaction = mongoose.model('Transaction', transactionSchema);
+
+export default Transaction;
+
+
 Endpoints:
 
     Registrar Usuário:
