@@ -101,7 +101,8 @@ Para acessar endpoints protegidos, é necessário incluir um token válido no ca
 
     - Endpoint: `/users/logout`
     - Método: POST
-    - Descrição: Desconecta o usuário, invalidando o token de acesso.
+    - Descrição: Desconecta o usuário, invalidando o token de acesso. Lembre-se de incluir o token no cabeçalho Authorization usando o esquema Bearer.
+
 
 ## Considerações Finais
 
