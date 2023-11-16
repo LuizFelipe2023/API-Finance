@@ -107,4 +107,4 @@ Para acessar endpoints protegidos, é necessário incluir um token válido no ca
 
 Esta documentação fornece uma visão geral dos principais recursos e operações da API Finance. Para obter detalhes mais específicos sobre cada endpoint, consulte a documentação completa.
 
-Fique Livre também pra fazer alterações no codigo atrave de pull requests.
+Fique Livre também pra fazer alterações no código através de pull requests.
