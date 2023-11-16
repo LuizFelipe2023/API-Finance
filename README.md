@@ -3,6 +3,8 @@ Título: Finance API
 
 Descrição:
 Esta API fornece serviços para gerenciar transações financeiras, metas de gastos mensais e controle de usuários.
+Tecnologias Usadas:
+Javascript, Express, Mongodb, JWT Tokens e Bcryptjs
 Endpoints:
 
     Registrar Usuário:
