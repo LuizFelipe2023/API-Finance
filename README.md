@@ -44,7 +44,7 @@ bash
     npm start
 
 O servidor será iniciado em http://localhost:3000 por padrão.
-Esquema de Usuário
+##Esquema de Usuário
 
 O arquivo userModel.js contém o esquema para os usuários. O esquema define a estrutura dos usuários e é usado pelo Mongoose para interagir com o MongoDB.
 
@@ -64,7 +64,7 @@ const User = mongoose.model('User', userSchema);
 
 export default User;
 
-Esquema de Transação
+## Esquema de Transação
 
 O arquivo transactionModel.js contém o esquema para as transações financeiras. O esquema define a estrutura das transações e é usado pelo Mongoose para interagir com o MongoDB.
 
@@ -86,7 +86,7 @@ const Transaction = mongoose.model('Transaction', transactionSchema);
 
 export default Transaction;
 
-Endpoints
+##Endpoints
 Registrar Usuário
 
     Endpoint: /users/register
@@ -158,7 +158,7 @@ Obter Média Mensal de Despesas
     Método: GET
     Descrição: Retorna a média mensal de despesas.
 
-Autenticação
+##Autenticação
 
 Todos os endpoints, exceto /users/register e /users/login, requerem autenticação. Certifique-se de incluir um token válido no cabeçalho Authorization para acessar esses recursos.
 Recursos Adicionais
